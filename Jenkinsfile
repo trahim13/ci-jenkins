@@ -44,6 +44,15 @@ pipeline {
             }
         }
 
+        stage ('Build Docker image'){
+            steps{
+//                 sh  "docker build -t te/ci-jenkins:$env.BUILD_NUMBER ." old primitive way
+               script{
+                    dockerImage = docker.build("te/ci-jenkins:${env.BUILD_NUMBER}")
+               }
+            }
+        }
+
    }
    post {
         always {

@@ -5,7 +5,7 @@ pipeline {
        PATH = "$mavenHome/bin:$PATH"
    }
    stages{
-        stage ('Build'){
+        stage ('Checkout'){
             steps{
                 echo("Build")
                 echo "PATH - $PATH"
@@ -18,6 +18,20 @@ pipeline {
                 sh "mvn --version"
             }
         }
+
+        stage ('Clean'){
+            steps{
+                sh "mvn clean"
+            }
+        }
+
+        stage ('Build'){
+            steps{
+                sh  "mvn package"
+            }
+        }
+
+
         stage ('Test'){
             steps{
                 echo("Test")

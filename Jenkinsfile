@@ -11,6 +11,7 @@ pipeline {
                 echo "JOB NAME - $env.JOB_NAME"
                 echo "BUILD URL - $env.BUILD_URL"
                 echo "env - $env"
+                echo "docker version"
             }
         }
         stage ('Test'){

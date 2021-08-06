@@ -16,6 +16,7 @@ pipeline {
                 echo "env - $env"
                 sh "docker version"
                 sh "mvn --version"
+                sh "java -version"
             }
         }
 

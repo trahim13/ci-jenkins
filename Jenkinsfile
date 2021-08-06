@@ -1,17 +1,16 @@
 pipeline {
-//    agent any
-   agent {
-       docker {
-           image 'maven:3.8.1-adoptopenjdk-11'
-           args  '-v /tmp:/tmp'
-       }
-   }
+   agent any
 
    stages{
         stage ('Build'){
             steps{
                 echo("Build")
-                sh 'mvn --version'
+                echo "PATH - $PATH"
+                echo "BUILD NUMBER - $env.BUILD_NUMBER"
+                echo "BUILD ID - $env.BUILD_ID"
+                echo "JOB NAME - $env.JOB_NAME"
+                echo "BUILD URL - $env.BUILD_URL"
+                echo "env - $env"
             }
         }
         stage ('Test'){

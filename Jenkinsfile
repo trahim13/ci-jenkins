@@ -1,6 +1,9 @@
 pipeline {
    agent any
-
+   environment {
+       mavenHome = tool 'myMaven'
+       PATH = "$mavenHome/bin:$PATH"
+   }
    stages{
         stage ('Build'){
             steps{
@@ -12,6 +15,7 @@ pipeline {
                 echo "BUILD URL - $env.BUILD_URL"
                 echo "env - $env"
                 sh "docker version"
+                sh "mvn --version"
             }
         }
         stage ('Test'){

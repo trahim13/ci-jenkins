@@ -5,7 +5,7 @@ pipeline {
        PATH = "$mavenHome/bin:$PATH"
    }
    stages{
-        stage ('Test'){
+        stage ('Check env'){
             steps{
                 echo("Build")
                 echo "PATH - $PATH"
